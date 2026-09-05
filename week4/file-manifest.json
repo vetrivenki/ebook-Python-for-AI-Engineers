@@ -1,0 +1,359 @@
+{
+  "week": 4,
+  "days": [
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "task_count": 53,
+  "excludes": [
+    "This manifest",
+    "The generated code-link index"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 46,
+      "sha256": "c95842ad309480483d91510088f40706db09f65695bc918d667fa61576955c2c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1348,
+      "sha256": "0a6a780f371de9e4b5144492b4cfacf8f609fdb74fa3bf82c907819db87fe3d6"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 363,
+      "sha256": "a4378513d6203555160d0ff3d4d9f8a69aeada8ac7064d7f084337ff164076ec"
+    },
+    {
+      "path": "day22/README.md",
+      "bytes": 86,
+      "sha256": "46ae1b612c0b5cd44cf100cbc0811cb9678fe0d70faff3b8b9bb1c13280cb36b"
+    },
+    {
+      "path": "day22/w4-d22-t1-install-pytorch.py",
+      "bytes": 276,
+      "sha256": "8489c7656b527b890ffc95d2345c9ce792ba01075c8123033ec30953b6f240cb"
+    },
+    {
+      "path": "day22/w4-d22-t2-create-tensors.py",
+      "bytes": 318,
+      "sha256": "438bdbf7162a49250e3265fd149297a9fa34105f44089cdc30950a4c4778cc60"
+    },
+    {
+      "path": "day22/w4-d22-t3-operations-broadcasting.py",
+      "bytes": 295,
+      "sha256": "a0680052b1328cbd92ce002e404b2d295944c9de1650d4ffc57c2faa89f5a34b"
+    },
+    {
+      "path": "day22/w4-d22-t4-device-support.py",
+      "bytes": 371,
+      "sha256": "14bbd18bb3423dbfe685adbf8c6d27c3848721dab8907bb8e0521f755aa40733"
+    },
+    {
+      "path": "day22/w4-d22-t5-autograd-graph.py",
+      "bytes": 206,
+      "sha256": "962c41e16d5deef8ce30226d2273ac08c5a20ecb5c07d826676535fce685c0e9"
+    },
+    {
+      "path": "day22/w4-d22-t6-backward-and-grad.py",
+      "bytes": 246,
+      "sha256": "98fb9d18f26197eeda71114c1bab314870026c5084533ffbba2e6f82181b5b1c"
+    },
+    {
+      "path": "day22/w4-d22-t7-manual-gradient-check.py",
+      "bytes": 317,
+      "sha256": "eb3fb387471c62962dd38cea4b219ab050b281fbd794f673f33fa7164787b622"
+    },
+    {
+      "path": "day22/w4-d22-t8-shapes-dtypes-detach.py",
+      "bytes": 302,
+      "sha256": "0c8ae4aaef047e34d315207f16a38f679eaaff23f05c0e2e8df898939fb0d3ac"
+    },
+    {
+      "path": "day23/README.md",
+      "bytes": 101,
+      "sha256": "33561bc8f322ece64da0a768404e2cd4ca482a77b782e16edf6a3223470fc6f6"
+    },
+    {
+      "path": "day23/w4-d23-t1-nn-module.py",
+      "bytes": 319,
+      "sha256": "38bf44546b8619acf1d87b2df7497a8137838fc0b9187527de01184b6efff833"
+    },
+    {
+      "path": "day23/w4-d23-t2-linear-layers.py",
+      "bytes": 295,
+      "sha256": "9ac8a1da424634c802fbc719f79b7a415e35a1f362c3290cb65853e1ceba3267"
+    },
+    {
+      "path": "day23/w4-d23-t3-activation-functions.py",
+      "bytes": 298,
+      "sha256": "20befcaf2b6aeff9e8f6f18889d6d5757204fc945382f5f3d645db1c93ef04ac"
+    },
+    {
+      "path": "day23/w4-d23-t4-sequential-model.py",
+      "bytes": 239,
+      "sha256": "22afaa797a7b415fac0659cb1ae0a4eb0ffac2d18702b93418428bc3845199a9"
+    },
+    {
+      "path": "day23/w4-d23-t5-custom-forward-pass.py",
+      "bytes": 316,
+      "sha256": "a99f77e15759105139f25cd395e9427975d5ae27087ce641bf0824f6e7102351"
+    },
+    {
+      "path": "day23/w4-d23-t6-parameter-count.py",
+      "bytes": 392,
+      "sha256": "3a28c666a16cc15f9e887335d172d25c764f3fb58665b3d0d63bbf8af744c64b"
+    },
+    {
+      "path": "day23/w4-d23-t7-mlp-mini-practice.py",
+      "bytes": 402,
+      "sha256": "47806e7985b452f2d02871ad5d9ed67e998a148c018376d80a2604aed22694e0"
+    },
+    {
+      "path": "day24/README.md",
+      "bytes": 99,
+      "sha256": "d24b841a425947638ebf02cd312be5c523ce7af588d27676a51969d5ea13df97"
+    },
+    {
+      "path": "day24/w4-d24-t1-loss-functions.py",
+      "bytes": 346,
+      "sha256": "14d6160c4bc5d1b639985de88e4a4d51bc357a78054cde77e58c4ada082a20a9"
+    },
+    {
+      "path": "day24/w4-d24-t2-sgd-and-adam.py",
+      "bytes": 366,
+      "sha256": "797baf767bb077cd0050e677339a8f599c1b8b04a2ec15df56cfcf7d4dd8422a"
+    },
+    {
+      "path": "day24/w4-d24-t3-five-training-steps.py",
+      "bytes": 523,
+      "sha256": "f44ffa2fc4e5ec27055a3a637ee2b5d3d15b9faf9e43b49d85894a4d85cba6d6"
+    },
+    {
+      "path": "day24/w4-d24-t4-epochs-mini-batches.py",
+      "bytes": 565,
+      "sha256": "d082473b1300022246091fd13a7ff03c0cae3aabfb0e130c8d91a03329dfe521"
+    },
+    {
+      "path": "day24/w4-d24-t5-track-training-loss.py",
+      "bytes": 553,
+      "sha256": "2d0cce4a05156e2e4d008d8c4d581955b6c7b144a4f35f144633e6b3e106ed22"
+    },
+    {
+      "path": "day24/w4-d24-t6-plot-loss-curve.py",
+      "bytes": 744,
+      "sha256": "fbfb81e5c46caef0d92f2952ccf71910dfb66ccd36fc728735f5f88ef3f5cee1"
+    },
+    {
+      "path": "day24/w4-d24-t7-validation-no-grad.py",
+      "bytes": 565,
+      "sha256": "bd32d13cc62a3b5e1ce2057ab0be1ac7c6b397a0cfe7c947393852e8c5f16723"
+    },
+    {
+      "path": "day25/README.md",
+      "bytes": 110,
+      "sha256": "351235e5461d1b2793855872eee17bcda0789782aedf8ccd6159a401a7039b42"
+    },
+    {
+      "path": "day25/w4-d25-t1-convolution-operation.py",
+      "bytes": 313,
+      "sha256": "2ad7ded57e83b8fb6558a762daf7831e60d8fc4b9805aa7c3e40acd60963e265"
+    },
+    {
+      "path": "day25/w4-d25-t2-conv2d-padding-stride.py",
+      "bytes": 276,
+      "sha256": "db915b6e132ad3d6fc57be97203e2fe751b9df66835a8191a11425e80fc42631"
+    },
+    {
+      "path": "day25/w4-d25-t3-pooling-layers.py",
+      "bytes": 306,
+      "sha256": "fa13102615002826d7392f57b0667deceb66af47e784e40cc1acbb6d04c4fab8"
+    },
+    {
+      "path": "day25/w4-d25-t4-simple-cnn.py",
+      "bytes": 298,
+      "sha256": "3bf3a23cd85aed9597f969e7479e81e89c64474f1d79f80b40c41bc2284201aa"
+    },
+    {
+      "path": "day25/w4-d25-t5-feature-maps.py",
+      "bytes": 390,
+      "sha256": "abd995d8b8641ea832e63774516e38a425e3b6316017678e72d8564d0f65441b"
+    },
+    {
+      "path": "day25/w4-d25-t6-cnn-mini-practice.py",
+      "bytes": 627,
+      "sha256": "50d593c973906e3b9ea126821377ef64461c9d6033c3626eaff3536a606c6046"
+    },
+    {
+      "path": "day25/w4-d25-t7-cnn-shape-checks.py",
+      "bytes": 486,
+      "sha256": "819e135e47c1ff30515b991293e3f7b1f82268c87282b0270bc6ef77dfc6d994"
+    },
+    {
+      "path": "day26/README.md",
+      "bytes": 119,
+      "sha256": "91f75659c8c7d2c7879170783ca813fe673f31b5923073ea8819288344a3d2bf"
+    },
+    {
+      "path": "day26/w4-d26-t1-dataset-interface.py",
+      "bytes": 443,
+      "sha256": "316ae8dba2e89fdc942a757a4d99f290f1c089e67b0f4a1e5ce29a70cc8dd147"
+    },
+    {
+      "path": "day26/w4-d26-t2-custom-image-dataset.py",
+      "bytes": 485,
+      "sha256": "a8cc2c32c38e7f1687c708f4299c166ae0002fbac362c84423cd83890bb77849"
+    },
+    {
+      "path": "day26/w4-d26-t3-dataloader-batching.py",
+      "bytes": 372,
+      "sha256": "8622b97558478c6dbd1018b10fbe70cf6bbf516be79ee70bc1e139a981a25dda"
+    },
+    {
+      "path": "day26/w4-d26-t4-image-transforms.py",
+      "bytes": 351,
+      "sha256": "43596509d3fe7d20f0048d38a041a806ee01734f72c9bcd166aca3b2dcf74135"
+    },
+    {
+      "path": "day26/w4-d26-t5-train-validation-split.py",
+      "bytes": 382,
+      "sha256": "ffb4278fb8d7b5f4c55b652438039c8017d52e11305f9ec38615838afef6c00a"
+    },
+    {
+      "path": "day26/w4-d26-t6-image-folder-loader.py",
+      "bytes": 1040,
+      "sha256": "b451c03fc86a9003002c58098345982fa95a9f2022606aa12e993c23a4a6074e"
+    },
+    {
+      "path": "day26/w4-d26-t7-data-loader-safety.py",
+      "bytes": 469,
+      "sha256": "57b857853e9a317026e3c94d849f678f9cebe57745170086cdf1cea1eef226b8"
+    },
+    {
+      "path": "day27/README.md",
+      "bytes": 132,
+      "sha256": "83abf56a44c8fc0d3a474a8b770e51f38651802d74ba2272370f83bbe2b32445"
+    },
+    {
+      "path": "day27/w4-d27-t1-train-validation-loop.py",
+      "bytes": 680,
+      "sha256": "d5efc7e08a6de03fdada5b01d63012cdd5316ce5dcdf262b94b5906f38ae3aa8"
+    },
+    {
+      "path": "day27/w4-d27-t2-evaluate-accuracy.py",
+      "bytes": 507,
+      "sha256": "5563c877f5c06c09f27835f9fb97174728ca84c6e58ed4b97775c726aa17fd86"
+    },
+    {
+      "path": "day27/w4-d27-t3-save-load-state-dict.py",
+      "bytes": 479,
+      "sha256": "6721bd8be0d2da2c082863f20b668109995c76708b8f22132e63a6a4b29c7e89"
+    },
+    {
+      "path": "day27/w4-d27-t4-use-device-correctly.py",
+      "bytes": 467,
+      "sha256": "a589ec6f4f2df88d09b8378952009bd8b8dc53a24b887be2d0a422dc20fbbc67"
+    },
+    {
+      "path": "day27/w4-d27-t5-structured-logging.py",
+      "bytes": 308,
+      "sha256": "bfa1c6bfcb0d802ee1d71a6899b24d095e84cb714e38a5d6002b2a3953d14fb8"
+    },
+    {
+      "path": "day27/w4-d27-t6-save-best-model.py",
+      "bytes": 702,
+      "sha256": "f5b35bb69e065f2de8c8a9b7ddc14e25496832361335f24aa22b1ec974c63062"
+    },
+    {
+      "path": "day27/w4-d27-t7-early-stopping.py",
+      "bytes": 364,
+      "sha256": "24ea280f6961062fc796986ac8a3c3746471c5626e6f359d868907356e2f7e52"
+    },
+    {
+      "path": "day27/w4-d27-t8-reusable-pipeline.py",
+      "bytes": 790,
+      "sha256": "eaa68af894d597bcdfb5cecec0b3ceb187186a7bc06713b9b4a745c9340b95c8"
+    },
+    {
+      "path": "day28/README.md",
+      "bytes": 116,
+      "sha256": "3bbd56e0faaf05b31482c28794f047116b8442ac2e257c7a540e61a266c9eacb"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/README.md",
+      "bytes": 920,
+      "sha256": "19eb004447ba5d2284cae598ab7772bb2a24c6608955ca6b59c497e7c8a39d91"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/project_common.py",
+      "bytes": 4953,
+      "sha256": "82a143ab7271eb25b6cbe1009b30535d179cf7429e99f6a03d806912a1c8290f"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/w4-d28-t1-choose-dataset.py",
+      "bytes": 444,
+      "sha256": "887b2aeebd83bc20ae1a99e5034b551edb120279969905982889a164459d1b62"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/w4-d28-t2-build-cnn.py",
+      "bytes": 388,
+      "sha256": "439659f2503f9bf47ac5217f97c69517fab84ecffd31c8ef3a44ed4a74213244"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/w4-d28-t3-train-and-validate.py",
+      "bytes": 309,
+      "sha256": "56ba075ab822f061d117736a603ef23bbfe1988b712e93cbc3691ec3a9708048"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/w4-d28-t4-evaluate-performance.py",
+      "bytes": 877,
+      "sha256": "3b63de7a635539207ca5831ecd3b75809a28ebb82b9ca601a231a4d3391ea4a6"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/w4-d28-t5-save-load-model.py",
+      "bytes": 494,
+      "sha256": "74fc49bc25808cccbed6df035ad822ec330d3cf5c7b579a7fe894be3780a2c4c"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/w4-d28-t6-write-project-summary.py",
+      "bytes": 1030,
+      "sha256": "4bfe6c536eaf6206c5220e612b1f074d4d901d3c9695a61743262b4b07efeab7"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/w4-d28-t7-single-image-inference.py",
+      "bytes": 1135,
+      "sha256": "82db0124eb060ab63210736c8569788242bea01d7c61c4ef112b79ba62d617b7"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/w4-d28-t8-smoke-tests.py",
+      "bytes": 657,
+      "sha256": "9ee790b66be59067a479bf001cbdad08a0036bd649a70bc4b9ba7be1e5651ea9"
+    },
+    {
+      "path": "day28/image-classifier-from-scratch/w4-d28-t9-image-classifier-project.py",
+      "bytes": 631,
+      "sha256": "0a8552719760f9e265909cf80e8652a3457e04d2cf1e288cdfb733cce30de5b7"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 85,
+      "sha256": "baba59d744211287f2ec02ffcdd5fb2be48bbb5b96650cd61b50922b8f6961e9"
+    },
+    {
+      "path": "run_all_tasks.py",
+      "bytes": 597,
+      "sha256": "3ad4a35a51ef3c9e66e7896d62857c5cbd0ddee1e19ca9c4e31b6ac34642ece5"
+    },
+    {
+      "path": "week4_common.py",
+      "bytes": 3677,
+      "sha256": "0e43b44b6737b21635d9736552c4021a3c0ac6d70a05c8075b979786c00cf560"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+model,cv_auc,cv_std
+Logistic Regression,0.7843375840748631,0.025574031893362006
+Random Forest,0.73263648326858,0.008592299231142532
+Dummy baseline,0.5,0.0

@@ -1,0 +1,392 @@
+[
+  {
+    "task": "w3-d15-t1",
+    "file": "day15/w3-d15-t1-learning-types.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Predicted score for 5 hours: 80.0\nCluster IDs (names are arbitrary): [0 0 1 1]\nLearned action values: {'study': 0.75, 'skip': 0.0}\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d15-t2",
+    "file": "day15/w3-d15-t2-train-validation-test-split.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "train rows: 360 positive rate: 0.497\nvalidation rows: 120 positive rate: 0.5\ntest rows: 120 positive rate: 0.5\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d15-t3",
+    "file": "day15/w3-d15-t3-overfitting-underfitting.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Depth: 1 train accuracy: 0.773 validation accuracy: 0.773\nDepth: 4 train accuracy: 0.902 validation accuracy: 0.827\nDepth: None train accuracy: 1.0 validation accuracy: 0.813\nA large train/validation gap suggests overfitting; one split is not proof.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d15-t4",
+    "file": "day15/w3-d15-t4-bias-variance.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Degree: 1 bias squared: 0.1736 variance: 0.0123\nDegree: 4 bias squared: 0.0044 variance: 0.0165\nDegree: 12 bias squared: 0.0084 variance: 0.2875\nEmpirical estimates against a known function, not exact generalization error.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d15-t5",
+    "file": "day15/w3-d15-t5-common-metrics.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Accuracy 0.667\nPrecision 0.667\nRecall 0.667\nF1 0.667\nROC-AUC 0.889\nMAE 20.0\nRMSE 21.602\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d15-t6",
+    "file": "day15/w3-d15-t6-verify-scikit-learn.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Python executable: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python\nscikit-learn version: 1.8.0\nImport succeeded. This script does not install packages.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d15-t7",
+    "file": "day15/w3-d15-t7-manual-metrics-practice.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Training row IDs: [11, 10, 7, 18, 3, 17, 0, 16, 15, 9, 4, 1, 2, 14]\nHeld-out row IDs: [8, 19, 6, 13, 5, 12]\nTP, TN, FP, FN: 2 2 1 1\nAccuracy: 0.6666666666666666\nPrecision, recall, F1: 0.6666666666666666 0.6666666666666666 0.6666666666666666\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d15-t8",
+    "file": "day15/w3-d15-t8-dummy-baseline-imbalance.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Accuracy: 0.9\nPositive-class recall: 0.0\nBalanced accuracy: 0.5\n90% accuracy can hide complete failure to identify the minority class.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d16-t1",
+    "file": "day16/w3-d16-t1-feature-scaling.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "StandardScaler\nScaled training data: [[-1.22474487 -1.22474487]\n [ 0.          0.        ]\n [ 1.22474487  1.22474487]]\nFuture data using training statistics: [[2.44948974 2.44948974]]\nMinMaxScaler\nScaled training data: [[0.  0. ]\n [0.5 0.5]\n [1.  1. ]]\nFuture data using training statistics: [[1.5 1.5]]\nMinMaxScaler can return values outside [0, 1] for new data.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d16-t2",
+    "file": "day16/w3-d16-t2-categorical-encoding.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "One-hot names: ['x0_annual' 'x0_monthly']\nUnseen category: [[0. 0.]]\nOrdered priorities: [[2.]\n [0.]\n [1.]]\nEncoded targets: [1 0 1]\nClass mapping: ['churn' 'stay']\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d16-t3",
+    "file": "day16/w3-d16-t3-missing-values-pipeline.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Transformed train: [-1.22474487  0.          1.22474487]\nTransformed future: [0.         9.79795897]\nTraining median: [20.]\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d16-t4",
+    "file": "day16/w3-d16-t4-column-transformer.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Train shape: (90, 4)\nValidation shape: (30, 4)\nFeature names: ['numeric__tenure' 'numeric__monthly_fee' 'category__contract_annual'\n 'category__contract_monthly']\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d16-t5",
+    "file": "day16/w3-d16-t5-prevent-data-leakage.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Correct training-only mean: [20.]\nLeaky mean that saw held-out data: [265.]\nUse a Pipeline inside cross-validation so every fold fits its own scaler.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d16-t6",
+    "file": "day16/w3-d16-t6-mixed-data-pipeline-practice.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "              precision    recall  f1-score   support\n\n           0       0.73      1.00      0.85        22\n           1       0.00      0.00      0.00         8\n\n    accuracy                           0.73        30\n   macro avg       0.37      0.50      0.42        30\nweighted avg       0.54      0.73      0.62        30\n\nNew-category churn probability: 0.3266363361840824\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d16-t7",
+    "file": "day16/w3-d16-t7-group-and-time-splits.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Training customers: [0 2 3 4 6 7]\nValidation customers: [1 5]\nLatest training row: 5 first validation row: 6\nLatest training row: 11 first validation row: 12\nLatest training row: 17 first validation row: 18\nChoose group/time splits for repeated customers or future forecasting.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d17-t1",
+    "file": "day17/w3-d17-t1-logistic-regression.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Validation accuracy: 0.8\nValidation F1: 0.605\nValidation ROC-AUC: 0.861\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d17-t2",
+    "file": "day17/w3-d17-t2-decision-tree.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Validation accuracy: 0.827\nValidation F1: 0.675\nValidation ROC-AUC: 0.857\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d17-t3",
+    "file": "day17/w3-d17-t3-random-forest.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Validation accuracy: 0.847\nValidation F1: 0.676\nValidation ROC-AUC: 0.897\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d17-t4",
+    "file": "day17/w3-d17-t4-fit-predict-evaluate.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "First five labels: [1 1 0 1 0]\nFirst five positive probabilities: [0.547 0.685 0.048 0.748 0.183]\n              precision    recall  f1-score   support\n\n           0       0.82      0.92      0.87       106\n           1       0.72      0.52      0.61        44\n\n    accuracy                           0.80       150\n   macro avg       0.77      0.72      0.74       150\nweighted avg       0.79      0.80      0.79       150\n\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d17-t5",
+    "file": "day17/w3-d17-t5-feature-importance.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Feature 9 importance 0.261\nFeature 3 importance 0.114\nFeature 6 importance 0.109\nFeature 7 importance 0.095\nFeature 8 importance 0.093\nFeature 5 importance 0.087\nFeature 0 importance 0.073\nFeature 1 importance 0.067\nFeature 2 importance 0.055\nFeature 4 importance 0.045\nImpurity importance can favor high-cardinality features; it is not causation.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d17-t6",
+    "file": "day17/w3-d17-t6-compare-three-models.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "              model  accuracy    f1  roc_auc\n      Random Forest     0.847 0.693    0.916\nLogistic Regression     0.800 0.605    0.861\n      Decision Tree     0.827 0.675    0.857\nValidation comparison only. Do not call this an untouched final test.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d17-t7",
+    "file": "day17/w3-d17-t7-permutation-importance.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Feature 9 AUC drop 0.26 +/- 0.038\nFeature 7 AUC drop 0.043 +/- 0.008\nFeature 3 AUC drop 0.033 +/- 0.008\nFeature 6 AUC drop 0.03 +/- 0.011\nFeature 8 AUC drop 0.018 +/- 0.007\nCorrelated features may share importance. These scores do not prove causality.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d18-t1",
+    "file": "day18/w3-d18-t1-support-vector-machine.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Validation accuracy: 0.88\nValidation F1: 0.743\nValidation ROC-AUC: 0.945\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d18-t2",
+    "file": "day18/w3-d18-t2-nearest-neighbors.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Validation accuracy: 0.893\nValidation F1: 0.778\nValidation ROC-AUC: 0.937\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d18-t3",
+    "file": "day18/w3-d18-t3-naive-bayes.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Validation accuracy: 0.773\nValidation F1: 0.564\nValidation ROC-AUC: 0.823\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d18-t4",
+    "file": "day18/w3-d18-t4-model-comparison-table.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "              model  accuracy    f1  roc_auc\n                SVM     0.880 0.743    0.945\n                KNN     0.893 0.778    0.937\n      Random Forest     0.847 0.693    0.916\nLogistic Regression     0.800 0.605    0.861\n      Decision Tree     0.827 0.675    0.857\n        Naive Bayes     0.773 0.564    0.823\nValidation comparison only. Do not call this an untouched final test.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d18-t5",
+    "file": "day18/w3-d18-t5-choose-an-algorithm.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Logistic Regression: Strong fast baseline; linear decision boundary; scale features.\nDecision Tree: Readable rules at shallow depth; deep trees can overfit.\nRandom Forest: Nonlinear tabular baseline; larger and less transparent.\nSVM: Useful for medium-sized data; scale inputs; prediction can be costly.\nKNN: Simple distance baseline; scale inputs; costly on large training sets.\nNaive Bayes: Fast baseline; independence assumption may be unrealistic.\nMeasure validation quality, training time, inference time, and model size.\nUse MultinomialNB for suitable count features; this week uses GaussianNB.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d18-t6",
+    "file": "day18/w3-d18-t6-comparison-practice.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "              model  accuracy    f1  roc_auc\n                SVM     0.880 0.743    0.945\n                KNN     0.893 0.778    0.937\n      Random Forest     0.847 0.693    0.916\nLogistic Regression     0.800 0.605    0.861\n      Decision Tree     0.827 0.675    0.857\n        Naive Bayes     0.773 0.564    0.823\nValidation comparison only. Do not call this an untouched final test.\nSaved: /workspace/scratch/db623eaa3625/python-ai-90days/week3/day18/output/model-comparison.csv\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d19-t1",
+    "file": "day19/w3-d19-t1-gradient-boosting.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Stage 1 validation log loss: 0.588\nStage 10 validation log loss: 0.4928\nStage 30 validation log loss: 0.4157\nStage 60 validation log loss: 0.3891\nBoosting adds trees sequentially; more trees can also overfit.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d19-t2",
+    "file": "day19/w3-d19-t2-xgboost-training.py",
+    "status": "SKIPPED",
+    "reason": "XGBoost not enabled"
+  },
+  {
+    "task": "w3-d19-t3",
+    "file": "day19/w3-d19-t3-lightgbm-catboost-overview.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "xgboost | installed: False\n  Tree boosting with regularization; this week's runnable main implementation.\nlightgbm | installed: False\n  Histogram-based boosting, usually leaf-wise growth; control leaf complexity.\ncatboost | installed: False\n  Boosting with built-in categorical handling and ordered techniques.\nLightGBM and CatBoost are optional overview topics; neither is required here.\nDo not claim one is always best: compare suitable pipelines on the same folds.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d19-t4",
+    "file": "day19/w3-d19-t4-xgboost-hyperparameters.py",
+    "status": "SKIPPED",
+    "reason": "XGBoost not enabled"
+  },
+  {
+    "task": "w3-d19-t5",
+    "file": "day19/w3-d19-t5-early-stopping.py",
+    "status": "SKIPPED",
+    "reason": "XGBoost not enabled"
+  },
+  {
+    "task": "w3-d19-t6",
+    "file": "day19/w3-d19-t6-xgboost-versus-random-forest.py",
+    "status": "SKIPPED",
+    "reason": "XGBoost not enabled"
+  },
+  {
+    "task": "w3-d20-t1",
+    "file": "day20/w3-d20-t1-stratified-cross-validation.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Fold AUC: [0.879 0.864 0.855 0.862 0.823]\nMean and standard deviation: 0.856 0.019\nThe pipeline refits its scaler within every training fold.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d20-t2",
+    "file": "day20/w3-d20-t2-grid-search.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Best parameters: {'logisticregression__C': 1.0}\nBest cross-validation AUC: 0.857\nThe best CV score is selected optimistically; final evaluation needs unseen data.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d20-t3",
+    "file": "day20/w3-d20-t3-randomized-search.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Best parameters: {'n_estimators': 40, 'min_samples_leaf': 3, 'max_depth': None}\nBest cross-validation AUC: 0.892\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d20-t4",
+    "file": "day20/w3-d20-t4-learning-curves.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Training sizes: [ 90 180 300]\nValidation AUC: [0.855 0.854 0.881]\nSaved: /workspace/scratch/db623eaa3625/python-ai-90days/week3/day20/output/learning-curve.png\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d20-t5",
+    "file": "day20/w3-d20-t5-confusion-matrix.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Rows = actual; columns = predicted; order = [stay, churn]\n[[2 1]\n [1 2]]\nTrue negatives: 2 False positives: 1\nFalse negatives: 1 True positives: 2\nIllustrative total error cost: 110\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d20-t6",
+    "file": "day20/w3-d20-t6-xgboost-search-practice.py",
+    "status": "SKIPPED",
+    "reason": "XGBoost not enabled"
+  },
+  {
+    "task": "w3-d20-t7",
+    "file": "day20/w3-d20-t7-precision-recall-and-thresholds.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Average precision (PR summary): 0.737\nThreshold, precision, recall, F1: [0.2   0.522 0.818 0.637]\nThreshold, precision, recall, F1: [0.35  0.667 0.682 0.674]\nThreshold, precision, recall, F1: [0.5   0.719 0.523 0.605]\nThreshold, precision, recall, F1: [0.65  0.739 0.386 0.507]\nThreshold, precision, recall, F1: [0.8   0.846 0.25  0.386]\nSelected validation F1 threshold: 0.35\nFreeze this choice before a final test. Average precision is not trapezoidal PR-AUC.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d21-t1",
+    "file": "day21/customer-churn-prediction/w3-d21-t1-load-explore-churn.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "customer_id  tenure_months  monthly_charge  support_calls contract payment_method  churn\n  DEMO-0000            7.0           24.24            3.0  monthly         manual      0\n  DEMO-0001           56.0          108.41            1.0  monthly  bank_transfer      1\n  DEMO-0002           48.0           90.96            3.0   annual           card      1\n  DEMO-0003           32.0           37.31            3.0   annual           card      0\n  DEMO-0004           32.0           29.17            2.0  monthly  bank_transfer      1\nRows and columns: (900, 7)\nMissing values:\n customer_id        0\ntenure_months      0\nmonthly_charge    25\nsupport_calls      0\ncontract           0\npayment_method    15\nchurn              0\ndtype: int64\nChurn counts:\n churn\n0    501\n1    399\nName: count, dtype: int64\ntrain rows: 540\nvalid rows: 180\ntest rows: 180\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d21-t2",
+    "file": "day21/customer-churn-prediction/w3-d21-t2-preprocessing-pipeline.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Training shape: (540, 8)\nValidation shape: (180, 8)\nOutput names: ['numeric__tenure_months' 'numeric__monthly_charge'\n 'numeric__support_calls' 'categorical__contract_annual'\n 'categorical__contract_monthly'\n 'categorical__payment_method_bank_transfer'\n 'categorical__payment_method_card' 'categorical__payment_method_manual']\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d21-t3",
+    "file": "day21/customer-churn-prediction/w3-d21-t3-train-compare-models.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "              model  cv_auc  cv_std\nLogistic Regression   0.784   0.026\n      Random Forest   0.733   0.009\n     Dummy baseline   0.500   0.000\nReduced scikit-learn-only mode: True\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d21-t4",
+    "file": "day21/customer-churn-prediction/w3-d21-t4-tune-best-model.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Selected model: Logistic Regression\nBest parameters: {'model__C': 1.0}\nSelected training-CV AUC: 0.784\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d21-t5",
+    "file": "day21/customer-churn-prediction/w3-d21-t5-final-evaluation.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "              precision    recall  f1-score   support\n\n        stay       0.90      0.46      0.61       100\n       churn       0.58      0.94      0.72        80\n\n    accuracy                           0.67       180\n   macro avg       0.74      0.70      0.66       180\nweighted avg       0.76      0.67      0.66       180\n\nConfusion matrix [stay, churn]:\n [[46 54]\n [ 5 75]]\nFrozen validation-selected threshold: 0.25\nTest metrics: {'accuracy': 0.6722222222222223, 'precision': 0.5813953488372093, 'recall': 0.9375, 'f1': 0.7177033492822966, 'roc_auc': 0.828625, 'average_precision': 0.7955452921706309}\nThe ROC chart and classification report were saved in output/.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d21-t6",
+    "file": "day21/customer-churn-prediction/w3-d21-t6-save-pipeline-joblib.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Saved trusted local pipeline: /workspace/scratch/db623eaa3625/python-ai-90days/week3/day21/customer-churn-prediction/output/churn-pipeline.joblib\nSaved feature names: ['tenure_months', 'monthly_charge', 'support_calls', 'contract', 'payment_method']\nSaved package versions: {'scikit-learn': '1.8.0', 'numpy': '2.3.5', 'pandas': '2.2.3', 'joblib': '1.5.3'}\nRound-trip probabilities verified for the locally created artifact.\nNever load a joblib/pickle artifact from an untrusted source.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d21-t7",
+    "file": "day21/customer-churn-prediction/w3-d21-t7-write-performance-summary.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "              precision    recall  f1-score   support\n\n        stay       0.90      0.46      0.61       100\n       churn       0.58      0.94      0.72        80\n\n    accuracy                           0.67       180\n   macro avg       0.74      0.70      0.66       180\nweighted avg       0.76      0.67      0.66       180\n\nConfusion matrix [stay, churn]:\n [[46 54]\n [ 5 75]]\n# Customer Churn Prediction - Learning Report\n\nData: 900 synthetic customers by default; not a real business dataset.\n\nSelected model: Logistic Regression\n\nXGBoost included: False\n\nSelected parameters: {'model__C': 1.0}\n\nTraining-CV ROC-AUC: 0.784\n\nValidation-selected decision threshold: 0.25\n\nFinal test metrics: {\n  \"accuracy\": 0.6722222222222223,\n  \"precision\": 0.5813953488372093,\n  \"recall\": 0.9375,\n  \"f1\": 0.7177033492822966,\n  \"roc_auc\": 0.828625,\n  \"average_precision\": 0.7955452921706309\n}\n\nSelection uses 3-fold CV on the 60% training partition; threshold selection uses the 20% validation partition. The remaining 20% is held out until final evaluation. Do not iterate on this test result. CV rankings have selection bias; the final test is an estimate from a small synthetic sample, not an operational guarantee.\n\nThe synthetic label generator uses tenure, contract, charge, support calls, and payment method. This is by construction, not an empirical causal insight about real customers. No deployment, authentication, privacy review, or drift monitoring is implemented.\n\nNever load an untrusted joblib/pickle file. Reuse the recorded package versions.\n\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d21-t8",
+    "file": "day21/customer-churn-prediction/w3-d21-t8-predict-new-customer.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "Saved trusted local pipeline: /workspace/scratch/db623eaa3625/python-ai-90days/week3/day21/customer-churn-prediction/output/churn-pipeline.joblib\nEstimated churn score: 0.851\nDecision threshold: 0.25\nPredicted churn: True\nThis score is not guaranteed to be a calibrated real-world probability.\n",
+    "stderr": ""
+  },
+  {
+    "task": "w3-d21-t9",
+    "file": "day21/customer-churn-prediction/w3-d21-t9-customer-churn-prediction-system.py",
+    "status": "PASS",
+    "returncode": 0,
+    "stdout": "              precision    recall  f1-score   support\n\n        stay       0.90      0.46      0.61       100\n       churn       0.58      0.94      0.72        80\n\n    accuracy                           0.67       180\n   macro avg       0.74      0.70      0.66       180\nweighted avg       0.76      0.67      0.66       180\n\nConfusion matrix [stay, churn]:\n [[46 54]\n [ 5 75]]\nSaved trusted local pipeline: /workspace/scratch/db623eaa3625/python-ai-90days/week3/day21/customer-churn-prediction/output/churn-pipeline.joblib\n# Customer Churn Prediction - Learning Report\n\nData: 900 synthetic customers by default; not a real business dataset.\n\nSelected model: Logistic Regression\n\nXGBoost included: False\n\nSelected parameters: {'model__C': 1.0}\n\nTraining-CV ROC-AUC: 0.784\n\nValidation-selected decision threshold: 0.25\n\nFinal test metrics: {\n  \"accuracy\": 0.6722222222222223,\n  \"precision\": 0.5813953488372093,\n  \"recall\": 0.9375,\n  \"f1\": 0.7177033492822966,\n  \"roc_auc\": 0.828625,\n  \"average_precision\": 0.7955452921706309\n}\n\nSelection uses 3-fold CV on the 60% training partition; threshold selection uses the 20% validation partition. The remaining 20% is held out until final evaluation. Do not iterate on this test result. CV rankings have selection bias; the final test is an estimate from a small synthetic sample, not an operational guarantee.\n\nThe synthetic label generator uses tenure, contract, charge, support calls, and payment method. This is by construction, not an empirical causal insight about real customers. No deployment, authentication, privacy review, or drift monitoring is implemented.\n\nNever load an untrusted joblib/pickle file. Reuse the recorded package versions.\n\n",
+    "stderr": ""
+  }
+]

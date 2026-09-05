@@ -1,0 +1,34 @@
+{
+  "owner": "Venkatesan",
+  "projects": [
+    {
+      "name": "Cloud Log Analyzer",
+      "technologies": [
+        "Python",
+        "AWS"
+      ],
+      "status": "Completed",
+      "impact_score": 8
+    },
+    {
+      "name": "Secure RAG Assistant",
+      "technologies": [
+        "Python",
+        "RAG",
+        "AWS"
+      ],
+      "status": "In Progress",
+      "impact_score": 9
+    },
+    {
+      "name": "EKS Operations Agent",
+      "technologies": [
+        "Python",
+        "Kubernetes",
+        "AI"
+      ],
+      "status": "Completed",
+      "impact_score": 10
+    }
+  ]
+}
