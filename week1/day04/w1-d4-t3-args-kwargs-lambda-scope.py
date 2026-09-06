@@ -1,15 +1,19 @@
 course_name = "Python for AI Engineers"
 
+
 def greet(name, message="Keep learning"):
     local_text = f"{name}: {message}"
     return local_text
 
+
 def total_values(*values):
     return sum(values)
+
 
 def show_profile(**details):
     for key, value in details.items():
         print(f"{key}: {value}")
+
 
 projects = [
     {"name": "RAG Assistant", "impact": 85},

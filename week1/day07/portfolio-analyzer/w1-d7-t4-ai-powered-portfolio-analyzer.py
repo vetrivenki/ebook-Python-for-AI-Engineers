@@ -24,12 +24,16 @@ class Portfolio:
         self.projects.append(project)
 
     def technologies(self) -> list[str]:
-        return sorted({tech for project in self.projects for tech in project.technologies})
+        return sorted(
+            {tech for project in self.projects for tech in project.technologies}
+        )
 
     def completion_rate(self) -> float:
         if not self.projects:
             return 0.0
-        completed = sum(project.status.lower() == "completed" for project in self.projects)
+        completed = sum(
+            project.status.lower() == "completed" for project in self.projects
+        )
         return completed / len(self.projects) * 100
 
     def recommendation(self) -> str:
@@ -40,11 +44,14 @@ class Portfolio:
         return "Strong portfolio: add measurable business outcomes to every project."
 
     def save(self, file_path: Path) -> None:
-        data = {"owner": self.owner, "projects": [asdict(item) for item in self.projects]}
+        data = {
+            "owner": self.owner,
+            "projects": [asdict(item) for item in self.projects],
+        }
         file_path.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
     @classmethod
-    def load(cls, file_path: Path) -> "Portfolio":
+    def load(cls, file_path: Path) -> Portfolio:
         data = json.loads(file_path.read_text(encoding="utf-8"))
         projects = [Project(**item) for item in data.get("projects", [])]
         return cls(data.get("owner", "Unknown"), projects)
@@ -61,9 +68,15 @@ class Portfolio:
 def main() -> None:
     data_file = Path(__file__).with_name("portfolio-data.json")
     portfolio = Portfolio("Venkatesan")
-    portfolio.add_project(Project("Cloud Log Analyzer", ["Python", "AWS"], "Completed", 8))
-    portfolio.add_project(Project("Secure RAG Assistant", ["Python", "RAG", "AWS"], "In Progress", 9))
-    portfolio.add_project(Project("EKS Operations Agent", ["Python", "Kubernetes", "AI"], "Completed", 10))
+    portfolio.add_project(
+        Project("Cloud Log Analyzer", ["Python", "AWS"], "Completed", 8)
+    )
+    portfolio.add_project(
+        Project("Secure RAG Assistant", ["Python", "RAG", "AWS"], "In Progress", 9)
+    )
+    portfolio.add_project(
+        Project("EKS Operations Agent", ["Python", "Kubernetes", "AI"], "Completed", 10)
+    )
     portfolio.save(data_file)
 
     loaded_portfolio = Portfolio.load(data_file)

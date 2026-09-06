@@ -12,6 +12,7 @@ class Project:
         tech_text = ", ".join(self.technologies)
         return f"{self.name} | {tech_text} | {self.status}"
 
+
 project = Project(
     "AI Portfolio Analyzer",
     ["Python", "JSON"],

@@ -7,9 +7,5 @@ for word in text.split():
 print(frequency)
 
 scores = {"RAG": 95, "Agent": 88, "API": 78}
-strong_projects = {
-    name: score
-    for name, score in scores.items()
-    if score >= 85
-}
+strong_projects = {name: score for name, score in scores.items() if score >= 85}
 print(strong_projects)

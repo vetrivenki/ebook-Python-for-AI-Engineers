@@ -1,8 +1,8 @@
 """Run every non-interactive Day 1 learning script."""
 
-from pathlib import Path
 import subprocess
 import sys
+from pathlib import Path
 
 current_file = Path(__file__).name
 skip_files = {current_file, "w1-d1-t10-read-user-input.py"}
