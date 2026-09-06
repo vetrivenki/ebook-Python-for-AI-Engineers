@@ -9,24 +9,40 @@ from sklearn.model_selection import train_test_split
 
 # Each model lesson uses the same data and validation split.
 X, y = make_classification(
-    n_samples=600, n_features=10, n_informative=6, n_redundant=2,
-    weights=[0.7, 0.3], class_sep=0.8, random_state=42,
+    n_samples=600,
+    n_features=10,
+    n_informative=6,
+    n_redundant=2,
+    weights=[0.7, 0.3],
+    class_sep=0.8,
+    random_state=42,
 )
 X_train, X_valid, y_train, y_valid = train_test_split(
-    X, y, test_size=0.25, stratify=y, random_state=42,
+    X,
+    y,
+    test_size=0.25,
+    stratify=y,
+    random_state=42,
 )
 
 from pathlib import Path
+
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from sklearn.model_selection import learning_curve, StratifiedKFold
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import StratifiedKFold, learning_curve
 
 model = RandomForestClassifier(n_estimators=40, max_depth=5, random_state=42, n_jobs=1)
 sizes, train_scores, valid_scores = learning_curve(
-    model, X_train, y_train, train_sizes=[0.3, 0.6, 1.0], scoring="roc_auc",
-    cv=StratifiedKFold(3, shuffle=True, random_state=42), n_jobs=1,
+    model,
+    X_train,
+    y_train,
+    train_sizes=[0.3, 0.6, 1.0],
+    scoring="roc_auc",
+    cv=StratifiedKFold(3, shuffle=True, random_state=42),
+    n_jobs=1,
 )
 fig, ax = plt.subplots()
 ax.plot(sizes, train_scores.mean(axis=1), marker="o", label="Training")

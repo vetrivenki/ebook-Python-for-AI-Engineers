@@ -4,15 +4,15 @@ Educational CPU pipeline using synthetic customer records, not real customers.
 The final test partition is never used to select models, parameters, or thresholds.
 """
 
-from pathlib import Path
+import importlib.metadata
 import json
 import platform
-import importlib.metadata
+from pathlib import Path
 
 import joblib
+import matplotlib
 import numpy as np
 import pandas as pd
-import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -22,12 +22,21 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
-    accuracy_score, average_precision_score, classification_report,
-    confusion_matrix, f1_score, precision_score, recall_score,
-    roc_auc_score, RocCurveDisplay,
+    RocCurveDisplay,
+    accuracy_score,
+    average_precision_score,
+    classification_report,
+    confusion_matrix,
+    f1_score,
+    precision_score,
+    recall_score,
+    roc_auc_score,
 )
 from sklearn.model_selection import (
-    StratifiedKFold, RandomizedSearchCV, cross_val_score, train_test_split,
+    RandomizedSearchCV,
+    StratifiedKFold,
+    cross_val_score,
+    train_test_split,
 )
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -45,18 +54,22 @@ def make_sample_data():
     """Create realistic-looking but explicitly synthetic practice records."""
     rng = np.random.default_rng(SEED)
     count = 900
-    frame = pd.DataFrame({
-        "customer_id": [f"DEMO-{i:04d}" for i in range(count)],
-        "tenure_months": rng.integers(1, 73, count).astype(float),
-        "monthly_charge": rng.uniform(20, 120, count).round(2),
-        "support_calls": rng.poisson(2, count).astype(float),
-        "contract": rng.choice(["monthly", "annual"], count),
-        "payment_method": rng.choice(["card", "bank_transfer", "manual"], count),
-    })
+    frame = pd.DataFrame(
+        {
+            "customer_id": [f"DEMO-{i:04d}" for i in range(count)],
+            "tenure_months": rng.integers(1, 73, count).astype(float),
+            "monthly_charge": rng.uniform(20, 120, count).round(2),
+            "support_calls": rng.poisson(2, count).astype(float),
+            "contract": rng.choice(["monthly", "annual"], count),
+            "payment_method": rng.choice(["card", "bank_transfer", "manual"], count),
+        }
+    )
     # Labels depend on several features plus randomness; no perfect rule exists.
     log_odds = (
-        -2.4 + 1.5 * (frame["contract"] == "monthly")
-        + 0.025 * frame["monthly_charge"] - 0.035 * frame["tenure_months"]
+        -2.4
+        + 1.5 * (frame["contract"] == "monthly")
+        + 0.025 * frame["monthly_charge"]
+        - 0.035 * frame["tenure_months"]
         + 0.3 * frame["support_calls"]
         + 0.4 * (frame["payment_method"] == "manual")
     )
@@ -81,7 +94,9 @@ def validate_features(frame):
             raise ValueError(f"{column} must contain finite nonnegative numbers.")
     for column in CATEGORICAL:
         present = result[column].dropna()
-        if not present.map(lambda value: isinstance(value, str) and bool(value.strip())).all():
+        if not present.map(
+            lambda value: isinstance(value, str) and bool(value.strip())
+        ).all():
             raise ValueError(f"{column} must contain nonblank text or missing values.")
     # Normalize Python None to the missing marker expected by SimpleImputer.
     for column in CATEGORICAL:
@@ -122,11 +137,16 @@ def split_data(frame):
     validate_training_data(frame)
     ids = np.arange(len(frame))
     train, temporary = train_test_split(
-        ids, test_size=0.4, stratify=frame["churn"], random_state=SEED,
+        ids,
+        test_size=0.4,
+        stratify=frame["churn"],
+        random_state=SEED,
     )
     valid, test = train_test_split(
-        temporary, test_size=0.5,
-        stratify=frame.iloc[temporary]["churn"], random_state=SEED,
+        temporary,
+        test_size=0.5,
+        stratify=frame.iloc[temporary]["churn"],
+        random_state=SEED,
     )
     assert not set(train) & set(valid) and not set(train) & set(test)
     assert not set(valid) & set(test)
@@ -138,17 +158,24 @@ def split_data(frame):
 
 
 def make_preprocessor():
-    numeric = Pipeline([
-        ("impute", SimpleImputer(strategy="median")),
-        ("scale", StandardScaler()),
-    ])
-    categorical = Pipeline([
-        ("impute", SimpleImputer(strategy="most_frequent")),
-        ("encode", OneHotEncoder(handle_unknown="ignore", sparse_output=False)),
-    ])
-    return ColumnTransformer([
-        ("numeric", numeric, NUMERIC), ("categorical", categorical, CATEGORICAL),
-    ])
+    numeric = Pipeline(
+        [
+            ("impute", SimpleImputer(strategy="median")),
+            ("scale", StandardScaler()),
+        ]
+    )
+    categorical = Pipeline(
+        [
+            ("impute", SimpleImputer(strategy="most_frequent")),
+            ("encode", OneHotEncoder(handle_unknown="ignore", sparse_output=False)),
+        ]
+    )
+    return ColumnTransformer(
+        [
+            ("numeric", numeric, NUMERIC),
+            ("categorical", categorical, CATEGORICAL),
+        ]
+    )
 
 
 def candidates(include_xgboost=True):
@@ -156,15 +183,24 @@ def candidates(include_xgboost=True):
         "Dummy baseline": DummyClassifier(strategy="prior"),
         "Logistic Regression": LogisticRegression(max_iter=1000),
         "Random Forest": RandomForestClassifier(
-            n_estimators=60, max_depth=5, random_state=SEED, n_jobs=1,
+            n_estimators=60,
+            max_depth=5,
+            random_state=SEED,
+            n_jobs=1,
         ),
     }
     if include_xgboost:
         # Import only when requested. No silent fallback hides missing XGBoost.
         from xgboost import XGBClassifier
+
         models["XGBoost"] = XGBClassifier(
-            n_estimators=80, max_depth=3, learning_rate=0.08,
-            eval_metric="logloss", tree_method="hist", random_state=SEED, n_jobs=1,
+            n_estimators=80,
+            max_depth=3,
+            learning_rate=0.08,
+            eval_metric="logloss",
+            tree_method="hist",
+            random_state=SEED,
+            n_jobs=1,
         )
     return {
         name: Pipeline([("prepare", make_preprocessor()), ("model", model)])
@@ -178,11 +214,18 @@ def compare_models(parts, include_xgboost=True):
     folds = StratifiedKFold(n_splits=3, shuffle=True, random_state=SEED)
     for name, model in candidates(include_xgboost).items():
         scores = cross_val_score(
-            model, parts["X_train"], parts["y_train"],
-            scoring="roc_auc", cv=folds, n_jobs=1, error_score="raise",
+            model,
+            parts["X_train"],
+            parts["y_train"],
+            scoring="roc_auc",
+            cv=folds,
+            n_jobs=1,
+            error_score="raise",
         )
         rows.append({"model": name, "cv_auc": scores.mean(), "cv_std": scores.std()})
-    return pd.DataFrame(rows).sort_values("cv_auc", ascending=False).reset_index(drop=True)
+    return (
+        pd.DataFrame(rows).sort_values("cv_auc", ascending=False).reset_index(drop=True)
+    )
 
 
 def tune_model(parts, comparison, include_xgboost=True):
@@ -190,14 +233,25 @@ def tune_model(parts, comparison, include_xgboost=True):
     name = eligible.iloc[0]["model"]
     spaces = {
         "Logistic Regression": {"model__C": [0.01, 0.1, 1.0, 10.0]},
-        "Random Forest": {"model__max_depth": [3, 5, None], "model__min_samples_leaf": [1, 3, 6]},
-        "XGBoost": {"model__max_depth": [2, 3, 5], "model__learning_rate": [0.03, 0.08],
-                    "model__n_estimators": [40, 80]},
+        "Random Forest": {
+            "model__max_depth": [3, 5, None],
+            "model__min_samples_leaf": [1, 3, 6],
+        },
+        "XGBoost": {
+            "model__max_depth": [2, 3, 5],
+            "model__learning_rate": [0.03, 0.08],
+            "model__n_estimators": [40, 80],
+        },
     }
     search = RandomizedSearchCV(
-        candidates(include_xgboost)[name], spaces[name], n_iter=4,
-        cv=StratifiedKFold(3, shuffle=True, random_state=SEED), scoring="roc_auc",
-        random_state=SEED, n_jobs=1, error_score="raise",
+        candidates(include_xgboost)[name],
+        spaces[name],
+        n_iter=4,
+        cv=StratifiedKFold(3, shuffle=True, random_state=SEED),
+        scoring="roc_auc",
+        random_state=SEED,
+        n_jobs=1,
+        error_score="raise",
     )
     search.fit(parts["X_train"], parts["y_train"])
     return name, search
@@ -208,9 +262,15 @@ def choose_threshold(model, parts):
     rows = []
     for threshold in np.arange(0.1, 0.91, 0.05):
         labels = (probability >= threshold).astype(int)
-        rows.append({"threshold": float(threshold), "validation_f1":
-                     f1_score(parts["y_valid"], labels, zero_division=0)})
-    best = max(rows, key=lambda row: (row["validation_f1"], -abs(row["threshold"] - 0.5)))
+        rows.append(
+            {
+                "threshold": float(threshold),
+                "validation_f1": f1_score(parts["y_valid"], labels, zero_division=0),
+            }
+        )
+    best = max(
+        rows, key=lambda row: (row["validation_f1"], -abs(row["threshold"] - 0.5))
+    )
     return best["threshold"], pd.DataFrame(rows)
 
 
@@ -222,9 +282,14 @@ def fit_solution(include_xgboost=True):
     threshold, threshold_table = choose_threshold(model, parts)
     # Keep this exact fitted model: refitting on validation changes its scores.
     return {
-        "parts": parts, "model": model, "model_name": name, "threshold": threshold,
-        "comparison": comparison, "threshold_table": threshold_table,
-        "best_params": search.best_params_, "best_cv_auc": float(search.best_score_),
+        "parts": parts,
+        "model": model,
+        "model_name": name,
+        "threshold": threshold,
+        "comparison": comparison,
+        "threshold_table": threshold_table,
+        "best_params": search.best_params_,
+        "best_cv_auc": float(search.best_score_),
         "include_xgboost": include_xgboost,
     }
 
@@ -244,18 +309,27 @@ def evaluate_solution(solution):
         "average_precision": average_precision_score(actual, probability),
     }
     OUTPUT.mkdir(exist_ok=True)
-    report = classification_report(actual, labels, target_names=["stay", "churn"], zero_division=0)
+    report = classification_report(
+        actual, labels, target_names=["stay", "churn"], zero_division=0
+    )
     (OUTPUT / "classification-report.txt").write_text(report, encoding="utf-8")
-    (OUTPUT / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+    (OUTPUT / "metrics.json").write_text(
+        json.dumps(metrics, indent=2), encoding="utf-8"
+    )
     fig, ax = plt.subplots()
-    RocCurveDisplay.from_predictions(actual, probability, ax=ax, name=solution["model_name"])
+    RocCurveDisplay.from_predictions(
+        actual, probability, ax=ax, name=solution["model_name"]
+    )
     ax.plot([0, 1], [0, 1], linestyle="--", color="gray", label="Random ranking")
     ax.set_title("Synthetic churn: untouched test partition")
     ax.legend()
     fig.savefig(OUTPUT / "roc-curve.png", bbox_inches="tight", dpi=140)
     plt.close(fig)
     print(report)
-    print("Confusion matrix [stay, churn]:\n", confusion_matrix(actual, labels, labels=[0, 1]))
+    print(
+        "Confusion matrix [stay, churn]:\n",
+        confusion_matrix(actual, labels, labels=[0, 1]),
+    )
     return metrics
 
 
@@ -267,17 +341,26 @@ def save_solution(solution):
         packages.append("xgboost")
     versions = {package: importlib.metadata.version(package) for package in packages}
     bundle = {
-        "pipeline": solution["model"], "threshold": solution["threshold"],
-        "features": FEATURES, "model_name": solution["model_name"], "versions": versions,
-        "python": platform.python_version(), "synthetic_data": True,
+        "pipeline": solution["model"],
+        "threshold": solution["threshold"],
+        "features": FEATURES,
+        "model_name": solution["model_name"],
+        "versions": versions,
+        "python": platform.python_version(),
+        "synthetic_data": True,
     }
     target = OUTPUT / "churn-pipeline.joblib"
     joblib.dump(bundle, target)
     # Safe here only because THIS process just created this local artifact.
     restored = joblib.load(target)
     example = solution["parts"]["X_valid"].iloc[:3]
-    assert np.allclose(restored["pipeline"].predict_proba(example), solution["model"].predict_proba(example))
-    (OUTPUT / "environment.json").write_text(json.dumps(versions, indent=2), encoding="utf-8")
+    assert np.allclose(
+        restored["pipeline"].predict_proba(example),
+        solution["model"].predict_proba(example),
+    )
+    (OUTPUT / "environment.json").write_text(
+        json.dumps(versions, indent=2), encoding="utf-8"
+    )
     print("Saved trusted local pipeline:", target)
     return bundle
 
@@ -310,9 +393,15 @@ def write_summary(solution, metrics):
 
 def parse_options():
     import argparse
-    parser = argparse.ArgumentParser(description="Small synthetic customer-churn learning project.")
-    parser.add_argument("--sklearn-only", action="store_true",
-                        help="Explicit reduced mode: omit XGBoost; not a full three-model comparison.")
+
+    parser = argparse.ArgumentParser(
+        description="Small synthetic customer-churn learning project."
+    )
+    parser.add_argument(
+        "--sklearn-only",
+        action="store_true",
+        help="Explicit reduced mode: omit XGBoost; not a full three-model comparison.",
+    )
     return parser.parse_args()
 
 

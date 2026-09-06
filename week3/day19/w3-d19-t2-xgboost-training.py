@@ -9,11 +9,20 @@ from sklearn.model_selection import train_test_split
 
 # Each model lesson uses the same data and validation split.
 X, y = make_classification(
-    n_samples=600, n_features=10, n_informative=6, n_redundant=2,
-    weights=[0.7, 0.3], class_sep=0.8, random_state=42,
+    n_samples=600,
+    n_features=10,
+    n_informative=6,
+    n_redundant=2,
+    weights=[0.7, 0.3],
+    class_sep=0.8,
+    random_state=42,
 )
 X_train, X_valid, y_train, y_valid = train_test_split(
-    X, y, test_size=0.25, stratify=y, random_state=42,
+    X,
+    y,
+    test_size=0.25,
+    stratify=y,
+    random_state=42,
 )
 
 import xgboost
@@ -21,7 +30,17 @@ from xgboost import XGBClassifier
 
 # Install from the terminal: python -m pip install xgboost
 print("XGBoost version:", xgboost.__version__)
-model = XGBClassifier(n_estimators=80, max_depth=3, learning_rate=0.08, subsample=0.9, colsample_bytree=0.9, eval_metric="logloss", tree_method="hist", random_state=42, n_jobs=1)
+model = XGBClassifier(
+    n_estimators=80,
+    max_depth=3,
+    learning_rate=0.08,
+    subsample=0.9,
+    colsample_bytree=0.9,
+    eval_metric="logloss",
+    tree_method="hist",
+    random_state=42,
+    n_jobs=1,
+)
 from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
 
 model.fit(X_train, y_train)

@@ -5,8 +5,8 @@ Uses local sample data; no API key or network dataset is required.
 """
 
 import numpy as np
-from sklearn.linear_model import LinearRegression
 from sklearn.cluster import KMeans
+from sklearn.linear_model import LinearRegression
 
 # Supervised: learn from inputs paired with known target values.
 hours = np.array([[1], [2], [3], [4]])

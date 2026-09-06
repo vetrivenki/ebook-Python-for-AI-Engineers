@@ -5,6 +5,7 @@ Uses local sample data; no API key or network dataset is required.
 """
 
 import sys
+
 import sklearn
 
 # Install from your terminal: python -m pip install scikit-learn

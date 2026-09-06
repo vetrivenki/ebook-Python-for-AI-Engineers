@@ -4,7 +4,13 @@ Keep churn_common.py beside this file. See its named functions for implementatio
 For tasks 3-9, --sklearn-only explicitly omits XGBoost when unavailable.
 """
 
-from churn_common import load_data, split_data, compare_models, tune_model, parse_options
+from churn_common import (
+    compare_models,
+    load_data,
+    parse_options,
+    split_data,
+    tune_model,
+)
 
 options = parse_options()
 parts = split_data(load_data())

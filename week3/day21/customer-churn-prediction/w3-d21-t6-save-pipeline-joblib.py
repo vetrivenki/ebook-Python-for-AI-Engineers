@@ -4,7 +4,7 @@ Keep churn_common.py beside this file. See its named functions for implementatio
 For tasks 3-9, --sklearn-only explicitly omits XGBoost when unavailable.
 """
 
-from churn_common import fit_solution, save_solution, parse_options
+from churn_common import fit_solution, parse_options, save_solution
 
 options = parse_options()
 solution = fit_solution(include_xgboost=not options.sklearn_only)

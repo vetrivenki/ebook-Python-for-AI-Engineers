@@ -9,24 +9,38 @@ from sklearn.model_selection import train_test_split
 
 # Each model lesson uses the same data and validation split.
 X, y = make_classification(
-    n_samples=600, n_features=10, n_informative=6, n_redundant=2,
-    weights=[0.7, 0.3], class_sep=0.8, random_state=42,
+    n_samples=600,
+    n_features=10,
+    n_informative=6,
+    n_redundant=2,
+    weights=[0.7, 0.3],
+    class_sep=0.8,
+    random_state=42,
 )
 X_train, X_valid, y_train, y_valid = train_test_split(
-    X, y, test_size=0.25, stratify=y, random_state=42,
+    X,
+    y,
+    test_size=0.25,
+    stratify=y,
+    random_state=42,
 )
 
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV, StratifiedKFold
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
 
 model = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000))
 search = GridSearchCV(
-    model, {"logisticregression__C": [0.1, 1.0, 10.0]},
-    cv=StratifiedKFold(3, shuffle=True, random_state=42), scoring="roc_auc", n_jobs=1,
+    model,
+    {"logisticregression__C": [0.1, 1.0, 10.0]},
+    cv=StratifiedKFold(3, shuffle=True, random_state=42),
+    scoring="roc_auc",
+    n_jobs=1,
 )
 search.fit(X_train, y_train)
 print("Best parameters:", search.best_params_)
 print("Best cross-validation AUC:", round(search.best_score_, 3))
-print("The best CV score is selected optimistically; final evaluation needs unseen data.")
+print(
+    "The best CV score is selected optimistically; final evaluation needs unseen data."
+)

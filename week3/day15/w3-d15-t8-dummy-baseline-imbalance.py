@@ -5,7 +5,7 @@ Uses local sample data; no API key or network dataset is required.
 """
 
 from sklearn.dummy import DummyClassifier
-from sklearn.metrics import accuracy_score, recall_score, balanced_accuracy_score
+from sklearn.metrics import accuracy_score, balanced_accuracy_score, recall_score
 
 X = [[i] for i in range(100)]
 y = [0] * 90 + [1] * 10

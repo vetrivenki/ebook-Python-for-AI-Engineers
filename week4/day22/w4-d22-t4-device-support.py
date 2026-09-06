@@ -1,5 +1,6 @@
-from pathlib import Path
 import sys
+from pathlib import Path
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 """Week 4, Day 22, Task 4: select CUDA, MPS, or CPU."""
 import torch
@@ -10,4 +11,3 @@ tensor = torch.arange(5, dtype=torch.float32).to(device)
 print("Device:", device)
 print("Tensor:", tensor)
 print("Back on CPU:", tensor.cpu())
-

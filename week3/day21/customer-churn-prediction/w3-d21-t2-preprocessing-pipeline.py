@@ -5,7 +5,7 @@ For tasks 3-9, --sklearn-only explicitly omits XGBoost when unavailable.
 """
 
 import numpy as np
-from churn_common import load_data, split_data, make_preprocessor
+from churn_common import load_data, make_preprocessor, split_data
 
 parts = split_data(load_data())
 preprocessor = make_preprocessor()

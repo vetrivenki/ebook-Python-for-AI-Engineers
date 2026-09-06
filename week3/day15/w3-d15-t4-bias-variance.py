@@ -5,9 +5,9 @@ Uses local sample data; no API key or network dataset is required.
 """
 
 import numpy as np
+from sklearn.linear_model import Ridge
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import PolynomialFeatures
-from sklearn.linear_model import Ridge
 
 rng = np.random.default_rng(42)
 grid = np.linspace(-1, 1, 80).reshape(-1, 1)
@@ -23,6 +23,12 @@ for degree in [1, 4, 12]:
     predictions = np.array(predictions)
     bias_squared = np.mean((predictions.mean(axis=0) - truth) ** 2)
     variance = np.mean(predictions.var(axis=0))
-    print("Degree:", degree, "bias squared:", round(bias_squared, 4),
-          "variance:", round(variance, 4))
+    print(
+        "Degree:",
+        degree,
+        "bias squared:",
+        round(bias_squared, 4),
+        "variance:",
+        round(variance, 4),
+    )
 print("Empirical estimates against a known function, not exact generalization error.")

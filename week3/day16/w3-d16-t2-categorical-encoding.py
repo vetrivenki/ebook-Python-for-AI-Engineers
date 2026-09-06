@@ -4,7 +4,7 @@ Run this file with Python after installing week3/requirements.txt.
 Uses local sample data; no API key or network dataset is required.
 """
 
-from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, LabelEncoder
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder, OrdinalEncoder
 
 # Unordered features: a separate indicator for each known category.
 one_hot = OneHotEncoder(handle_unknown="ignore", sparse_output=False)

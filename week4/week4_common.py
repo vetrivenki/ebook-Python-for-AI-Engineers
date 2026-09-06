@@ -1,4 +1,5 @@
 """Shared, beginner-friendly helpers for Week 4 examples."""
+
 from __future__ import annotations
 
 import random
@@ -31,7 +32,9 @@ def classification_loaders(samples: int = 240, features: int = 4, batch_size: in
     x = torch.randn(samples, features)
     y = (x[:, 0] + 0.7 * x[:, 1] > 0).long()
     split = int(samples * 0.8)
-    train = DataLoader(TensorDataset(x[:split], y[:split]), batch_size=batch_size, shuffle=True)
+    train = DataLoader(
+        TensorDataset(x[:split], y[:split]), batch_size=batch_size, shuffle=True
+    )
     valid = DataLoader(TensorDataset(x[split:], y[split:]), batch_size=batch_size)
     return train, valid
 
@@ -41,15 +44,23 @@ def image_loaders(samples: int = 256, batch_size: int = 32, classes: int = 10):
     images = torch.rand(samples, 3, 32, 32)
     labels = torch.arange(samples) % classes
     split = int(samples * 0.8)
-    train = DataLoader(TensorDataset(images[:split], labels[:split]), batch_size=batch_size, shuffle=True)
-    valid = DataLoader(TensorDataset(images[split:], labels[split:]), batch_size=batch_size)
+    train = DataLoader(
+        TensorDataset(images[:split], labels[:split]),
+        batch_size=batch_size,
+        shuffle=True,
+    )
+    valid = DataLoader(
+        TensorDataset(images[split:], labels[split:]), batch_size=batch_size
+    )
     return train, valid
 
 
 class TinyMLP(nn.Module):
     def __init__(self, inputs: int = 4, classes: int = 2):
         super().__init__()
-        self.layers = nn.Sequential(nn.Linear(inputs, 16), nn.ReLU(), nn.Linear(16, classes))
+        self.layers = nn.Sequential(
+            nn.Linear(inputs, 16), nn.ReLU(), nn.Linear(16, classes)
+        )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.layers(x)
@@ -59,8 +70,12 @@ class TinyCNN(nn.Module):
     def __init__(self, classes: int = 10):
         super().__init__()
         self.features = nn.Sequential(
-            nn.Conv2d(3, 16, 3, padding=1), nn.ReLU(), nn.MaxPool2d(2),
-            nn.Conv2d(16, 32, 3, padding=1), nn.ReLU(), nn.AdaptiveAvgPool2d((1, 1)),
+            nn.Conv2d(3, 16, 3, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(2),
+            nn.Conv2d(16, 32, 3, padding=1),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool2d((1, 1)),
         )
         self.classifier = nn.Linear(32, classes)
 
@@ -75,7 +90,9 @@ def run_epoch(model, loader, loss_fn, optimizer=None, device=None):
     if device.type == model_device.type and device.index is None:
         device = model_device
     if device != model_device:
-        raise ValueError("Move the model to the requested device before creating the optimizer.")
+        raise ValueError(
+            "Move the model to the requested device before creating the optimizer."
+        )
     training = optimizer is not None
     model.train(training)
     total_loss = correct = total = 0

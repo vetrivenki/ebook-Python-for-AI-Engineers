@@ -1,8 +1,9 @@
 """Small schema, leakage, preprocessing, and persistence checks; no XGBoost required."""
-from pathlib import Path
+
 import sys
 import tempfile
 import unittest
+from pathlib import Path
 
 import joblib
 import numpy as np
@@ -10,8 +11,13 @@ import numpy as np
 PROJECT = Path(__file__).resolve().parents[1] / "day21" / "customer-churn-prediction"
 sys.path.insert(0, str(PROJECT))
 from churn_common import (
-    make_sample_data, split_data, validate_training_data, validate_features,
-    make_preprocessor, candidates, FEATURES,
+    FEATURES,
+    candidates,
+    make_preprocessor,
+    make_sample_data,
+    split_data,
+    validate_features,
+    validate_training_data,
 )
 
 
@@ -74,15 +80,23 @@ class ChurnTests(unittest.TestCase):
     def test_splits_are_disjoint_and_exclude_target(self):
         parts = split_data(self.frame)
         indices = [set(parts["X_" + name].index) for name in ["train", "valid", "test"]]
-        self.assertFalse(indices[0] & indices[1] or indices[0] & indices[2] or indices[1] & indices[2])
+        self.assertFalse(
+            indices[0] & indices[1]
+            or indices[0] & indices[2]
+            or indices[1] & indices[2]
+        )
         self.assertEqual([len(x) for x in indices], [540, 180, 180])
         self.assertEqual(list(parts["X_train"].columns), FEATURES)
 
     def test_preprocessor_uses_training_statistics(self):
         parts = split_data(self.frame)
         transformer = make_preprocessor().fit(parts["X_train"])
-        expected = parts["X_train"][["tenure_months", "monthly_charge", "support_calls"]].median()
-        actual = transformer.named_transformers_["numeric"].named_steps["impute"].statistics_
+        expected = parts["X_train"][
+            ["tenure_months", "monthly_charge", "support_calls"]
+        ].median()
+        actual = (
+            transformer.named_transformers_["numeric"].named_steps["impute"].statistics_
+        )
         np.testing.assert_allclose(actual, expected)
 
     def test_unseen_category_and_missing_values(self):
@@ -101,8 +115,10 @@ class ChurnTests(unittest.TestCase):
             path = Path(directory) / "trusted-test-model.joblib"
             joblib.dump(model, path)
             restored = joblib.load(path)
-            np.testing.assert_allclose(model.predict_proba(parts["X_valid"]),
-                                       restored.predict_proba(parts["X_valid"]))
+            np.testing.assert_allclose(
+                model.predict_proba(parts["X_valid"]),
+                restored.predict_proba(parts["X_valid"]),
+            )
 
 
 if __name__ == "__main__":

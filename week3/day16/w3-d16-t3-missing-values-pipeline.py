@@ -6,8 +6,8 @@ Uses local sample data; no API key or network dataset is required.
 
 import numpy as np
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
 
 train = [[10.0], [np.nan], [30.0]]
 future = [[np.nan], [100.0]]

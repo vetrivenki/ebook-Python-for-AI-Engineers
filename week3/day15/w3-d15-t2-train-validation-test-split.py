@@ -11,10 +11,16 @@ from sklearn.model_selection import train_test_split
 X, y = make_classification(n_samples=600, random_state=42)
 row_ids = np.arange(len(y))
 train_ids, temporary_ids = train_test_split(
-    row_ids, test_size=0.4, stratify=y, random_state=42,
+    row_ids,
+    test_size=0.4,
+    stratify=y,
+    random_state=42,
 )
 valid_ids, test_ids = train_test_split(
-    temporary_ids, test_size=0.5, stratify=y[temporary_ids], random_state=42,
+    temporary_ids,
+    test_size=0.5,
+    stratify=y[temporary_ids],
+    random_state=42,
 )
 # Train fits parameters. Validation guides choices. Test is the final check.
 for name, ids in [("train", train_ids), ("validation", valid_ids), ("test", test_ids)]:
